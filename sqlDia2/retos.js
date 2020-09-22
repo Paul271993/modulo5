@@ -267,7 +267,9 @@ connection.connect(function(error){
 // });
 
 
+//RETO 1
 
+//PUNTO 1
 
 // let sql = "SELECT COUNT(*) FROM students";
 // connection.query(sql, function (err, result)
@@ -282,6 +284,7 @@ connection.connect(function(error){
 
 // });
 
+//PUNTO 2
 
 // let sql = "SELECT * FROM groups";
 // connection.query(sql, function (err, result)
@@ -295,6 +298,8 @@ connection.connect(function(error){
 //     }
 
 // });
+
+//PUNTO 3
 
 // let sql = "DELETE FROM marks WHERE mark > 5 AND date > '2019-01-01' || date > '2020-01-01'";
 // connection.query(sql, function (err, result)
@@ -335,6 +340,8 @@ connection.connect(function(error){
 // });
 
 
+//PUNTO 4
+
 // let sql = "SELECT * FROM students WHERE fecha_de_ingreso > '2020-01-01'";
 // connection.query(sql, function (err, result)
 // {
@@ -348,20 +355,8 @@ connection.connect(function(error){
 
 // });
 
-//Calcular el numero de profesores que hay por cada asignatura:
 
-// let sql = "SELECT teachers_id COUNT(*) AS title FROM subjects GROUP BY subject_id";
-// connection.query(sql, function (err, result)
-// {
-//     if(err)
-//     console.log(err);
-//     else 
-//     {
-//         console.log("Dato insertado");
-//         console.log(result);
-//     }
-
-// });
+//PUNTO 5
 
 // let sql = "SELECT subject_id, COUNT(*) AS numero_profes FROM subject_teacher GROUP BY subject_id"
 // connection.query(sql, function (err, result)
@@ -375,7 +370,9 @@ connection.connect(function(error){
 //     }
 
 // });
-///////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////// RETO 2
 
 // INSERT INTO `subjects` (`subject_id`, `title`, `teacher_id`) VALUES (NULL, '', '1'), (NULL, '', '2');
 // INSERT INTO `subject_teacher` (`subject_id`, `teacher_id`, `group_id`) VALUES ('1', '1', '1');
@@ -395,6 +392,8 @@ connection.connect(function(error){
 // });
 
 
+//PUNTO 1
+
 // let sql = "SELECT mark, student_id FROM marks WHERE student_id BETWEEN 1 AND 20 OR mark >8 AND date < '2020-01-01' || date > '2019-01-01'";
 // connection.query(sql, function (err, result)
 // {
@@ -409,8 +408,9 @@ connection.connect(function(error){
 // });
 
 
+//PUNTO 2
 
-// let sql = "SELECT mark_id, AVG(mark) FROM marks WHERE marks.date < '2020-12-31' GROUP BY mark_id";
+// let sql = "SELECT mark_id, AVG(mark) FROM marks WHERE marks.date < '2020-12-31' || date > '2020-01-01'";
 // connection.query(sql, function (err, result)
 // {
 //     if(err)
@@ -423,6 +423,7 @@ connection.connect(function(error){
 
 // });
 
+//PUNTO 3
 
 // let sql = "SELECT student_id, AVG(mark) FROM marks WHERE marks.student_id < '2020-12-31' GROUP BY student_id";
 // connection.query(sql, function (err, result)
@@ -545,7 +546,7 @@ connection.connect(function(error){
 
 //RETO 4:
 
-// let sql = "SELECT COUNT(teacher_id), title, teachers.first_name, teachers.last_name FROM marks JOIN subjects ON(marks.subject_id = subjects.subject_id) JOIN subject_teacher ON (subjects.subject_id = subject_teacher.subject_id) JOIN teachers ON(teachers.teacher_id = subject_teacher.teacher_id) GROUP BY title";
+// let sql = "SELECT teachers.first_name,teachers.last_name,subjects.title AS asignatura, AVG(marks.mark) FROM marks JOIN subjects ON (marks.subject_id = subjects.subject_id) JOIN subject_teacher ON (marks.subject_id = subject_teacher.subject_id) JOIN teachers ON (subject_teacher.teacher_id = teachers.teacher_id) GROUP BY asignatura";
 // connection.query(sql, function (err, result)
 // {
 //     if(err)
@@ -557,3 +558,5 @@ connection.connect(function(error){
 //     }
 
 // });
+
+
